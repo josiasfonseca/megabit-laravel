@@ -1,0 +1,35 @@
+{
+    "name": "megabit-laravel/laravel-firebird",
+    "description": "A Firebird database package for the Laravel Framework",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Megabit Software LTDA",
+            "email": "desenvolvimento.megabit@gmail.com"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2.0",
+        "ext-pdo": "*",
+        "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+        "illuminate/container": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+        "illuminate/database": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+        "illuminate/events": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+        "doctrine/instantiator": "~1.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Firebird\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Firebird\\FirebirdServiceProvider"
+            ]
+        }
+    }
+}
