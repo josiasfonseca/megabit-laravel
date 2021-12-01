@@ -129,12 +129,10 @@ class Firebird30Grammar extends Grammar
      */
     protected function compileLimit(Builder $query, $limit)
     {
-        if ($query->offset) {
-            $first = (int)$query->offset + 1;
-            return 'ROWS ' . (int)$first;
-        } else {
-            return 'ROWS ' . (int)$limit;
-        }
+        if ($limit)
+            return 'fetch first ' . (int)$limit . ' rows only';
+        else
+            return null;
     }
 
     /**
@@ -181,16 +179,10 @@ class Firebird30Grammar extends Grammar
      */
     protected function compileOffset(Builder $query, $offset)
     {
-        if ($query->limit) {
-            if ($offset) {
-                $end = (int)$query->limit + (int)$offset;
-                return 'TO ' . $end;
-            } else {
-                return '';
-            }
+        if ($offset) {
+            return 'offset ' . (int)$offset . ' rows';
         } else {
-            $begin = (int)$offset + 1;
-            return 'ROWS ' . $begin . ' TO 2147483647';
+            return null;
         }
     }
 

@@ -89,7 +89,7 @@ class FirebirdProcessor extends Processor
         $mapping = function ($r) {
             $r = (object)$r;
 
-            return trim($r->{'RDB$FIELD_NAME'});
+            return trim($r->{'column_name'});
         };
 
         return array_map($mapping, $results);
